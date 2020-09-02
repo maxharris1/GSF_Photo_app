@@ -8,47 +8,31 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <%if current_user %>
-        <li class="nav-item dropdown profile-nav">
-          <a class="nav-link dropdown-toggle profile-nav-slug" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-user"  valign="center"></span>
-            <span id="user-name"  valign="center"><%= current_user.first_name %></span>
+
+        <div class="nav-item dropdown">
+          <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon"><i class="fas fa-user fa-2x"></i></span>
+            <span id="user-name"  valign="center" class="profile-link "><%= current_user.first_name %></span>
           </a>
           <div class="dropdown-menu dropdown-content profile-pannel " aria-labelledby="navbarDropdown">
             <div class="container dd">
-              <%= link_to 'Profile', profile_path, class: 'dropdown-item'%>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
+              <%= link_to 'Profile', profile_path, class: 'auth-btn'%>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'auth-btn'%>
 
             </div>
           </div>
-        </li>
+        </div>
+
       <%else %>
         <%=link_to "Login", login_path, class: " auth-btn"%>
         <%=link_to "Signup", signup_path, class: "auth-btn" %>
       <%end %>
 
     </form>
+
   </div>
 </nav>

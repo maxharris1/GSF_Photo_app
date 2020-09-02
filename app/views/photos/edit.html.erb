@@ -1,0 +1,20 @@
+<div class="container profile-page">
+  <h1>New Photo</h1>
+  <%= bootstrap_form_for @photos do |f| %>
+
+    <% if @photos.errors.any? %>
+      <ul>
+        <% @photos.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+
+    <%= f.label :thumbnial %>
+    <%= f.file_field :thumbnail %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+    <%= f.hidden_field :user_id, :value => current_user.id  %>
+    <%= f.submit 'Create New Photo', class: 'btn-default sign-up-button' %>
+  <% end %>
+</div>

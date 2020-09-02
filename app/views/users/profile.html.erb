@@ -1,0 +1,18 @@
+<%=link_to "Edit Profile", edit_user_registration_path, class: " btn btn-dark btn-lg auth-btn"%>
+
+<%=link_to "Add Photo", new_photo_path, class: " btn btn-dark btn-lg auth-btn"%>
+
+
+
+<div class="container">
+
+  <%@myphotos.each() do |v| %>
+
+  <div><%= image_tag url_for(v.thumbnail) %></div>
+
+
+  <% end %>
+
+
+
+</div>

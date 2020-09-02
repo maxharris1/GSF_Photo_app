@@ -13,15 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
-
-
-
-
-
 @import "base/*";
-
-
-/*// Partials - main css files*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "partials/layouts/*";
 
