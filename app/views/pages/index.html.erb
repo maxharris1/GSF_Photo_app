@@ -1,13 +1,25 @@
-<div class="container">
+<div class="main-container">
 <h1>Hello <%=current_user.first_name %></h1>
 
 
 
+  <% @photos.each_slice(4)  do |v| %>
+    <div class="row row-centered img-field">
+      <% v.each  do |v| %>
+        <div class="col-sm-3 col-lg-3" align="center" >
+          <div class="card" style="width: 18rem;">
+            <div class="card-body"id="img-card-index">
+              <%=link_to image_tag(v.thumbnail, alt: "logo", class: "card-img-top"), photo_path(v) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
 
   <div>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+
   </div>
 </div>

@@ -1,0 +1,65 @@
+<div class="main-container">
+<h1>Photo Search</h1>
+
+
+
+
+  <%= form_for search_path, method: :get do |f| %>
+    <p>
+      <%= f.label "Search for" %>
+      <%= text_field_tag :q, params[:q] %>
+      <%= submit_tag "Go", name: nil %>
+    </p>
+  <% end %>
+
+  <ul>
+    <% @photos.each_slice(4)  do |v| %>
+      <div class="row row-centered img-field">
+        <% v.each  do |v| %>
+          <div class="col-sm-3 col-lg-3" align="center" >
+            <div class="card" style="width: 18rem;">
+              <div class="card-body"id="img-card-index">
+                <%=link_to image_tag(v.thumbnail, alt: "logo", class: "card-img-top"), photo_path(v) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<%#= form_for search_path, method: :get, class:"form-inline" do |f| %>
+<!--  <div class="row">-->
+    <%#= text_field_tag :q, params[:q], class: "form-control Search-bar  mr-auto", placeholder: "Enter Keywords" %>
+    <%#= submit_tag "Search", name: nil, class: "btn btn-outline-success search-btn" %>
+<!--  </div>-->
+<%# end %>
+
+
+
+
+  <%# @photos.each_slice(4)  do |j| %>
+<!--    <div class="row row-centered img-field">-->
+      <%# j.each  do |v| %>
+<!--        <div class="col-sm-3 col-lg-3" align="center" >-->
+<!--          <div class="card" style="width: 18rem;">-->
+<!--            <div class="card-body"id="img-card-index">-->
+              <%#=link_to image_tag(v.thumbnail, alt: "logo", class: "card-img-top"), photo_path(v) %>
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+      <%# end %>
+<!--    </div>-->
+  <%# end %>
+
+</div>

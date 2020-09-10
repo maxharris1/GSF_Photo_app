@@ -1,29 +1,97 @@
 .navbar-brand {
   padding-top: 0px !important;
    padding-bottom: 0px !important;
+  margin-left: 1px;
+}
+.navbar {
+  padding: 0px !important;
+}
+.navbar-toggler{
+  margin-right: 10px;
+  font-size: 15px;
+}
+.dropdown-toggle::after{
+  color: white;
+}
+.logo-img{
+  width: 140px;
+  height: auto;
+
 }
 nav{
   background: rgb(255,255,255);
-  background: linear-gradient(102deg, rgba(255,255,255,1) 32%, rgba(0,133,242,1) 69%);
+  background: linear-gradient(102deg, rgba(255,255,255,1) 37%, rgba(0,133,242,1) 61%);
   -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
   -moz-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
   box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
 }
+nav span{
 
-#user-name{
-  mergin-right: 50px;
+    color: white !important;
+    font-size: 42px !important;
+    font-family: "proxima-nova-soft";
+
+
 }
-
+#user-name{
+  mergin-right: 60px;
+}
+.profile-slug{
+  margin-right:45px;
+}
 #navbarDropdown:hover .dropdown-content {
   display: block;
 }
+.auth-btn{
+  color: black;
+  font-family: "proxima-nova-soft";
+  font-size: 30px;
+  display:block;
+  vertical-align: center !important;
+}
+
+.auth-btn :hover{
+  text-decoration: none !important;
+  background-color: #B00100;
+}
+.dd{
+  text-align: center;
+}
+.profile-pannel{
+  -webkit-box-shadow: 0px 3px 23px 5px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 3px 23px 5px rgba(0,0,0,0.18);
+  box-shadow: 0px 3px 23px 5px rgba(0,0,0,0.18);
+  border: 0px !important;
+  border-radius: 0.55rem !important;
+  text-align: center;
+  min-height: 150px;
+  min-width: 100px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.profile-pannel a:hover {
+  text-decoration: none !important;
+  color: white;
+  background-color: #B00100;
+}
 
 .icon i{
-  color:black;
+  color:white;
   size: 2em;
 }
 .profile-link{
-  color: black;
-  font-size: 25px;
+  color: white;
+  font-size: 35px;
+}
+@media (max-width: 991px){
+  .icon i{
+    color:black;
+    size: 2em;
+  }
+.profile-link{
+    color: black !important;
+    font-size: 25px;
+  }
 }
 

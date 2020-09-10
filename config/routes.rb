@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   end
 
 
-
+  get 'tags/:tag', to: 'photos#index', as: :tag
+  resources :photos do
+    get :autocomplete_tag_name, :on => :collection
+  end
 
   resources :photos
 
   get 'profile', to: 'users#profile'
-
+  get 'search', to: 'search#search'
   root to: "pages#index"
 end

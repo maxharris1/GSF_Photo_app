@@ -1,4 +1,4 @@
-<div class="container profile-page">
+<div class="container main-container profile-page">
   <h1>New Photo</h1>
   <%= bootstrap_form_for @photos do |f| %>
 
@@ -15,7 +15,16 @@
     <%= f.file_field :thumbnail %>
     <%= f.text_field :caption %>
     <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+
     <%= f.hidden_field :user_id, :value => current_user.id  %>
     <%= f.submit 'Create New Photo', class: 'btn-default sign-up-button' %>
   <% end %>
 </div>
+
+<script>
+    $(document).on('ready turbolinks:load', function() {
+        $('.custom-file-input').change(function(){
+            $('.custom-file-label').text(this.value);
+        });
+    });
+</script>

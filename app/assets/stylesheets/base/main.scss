@@ -1,3 +1,43 @@
 .html{
   font-family: fa5-proxima-nova;
 }
+
+.main-container{
+  margin-top: 100px;
+}
+
+.search-bar{
+  width: 80% !important;
+  height: 65px !important;
+}
+body {
+  font-family: proxima-nova-soft !important;
+}
+
+.form-inline .form-control{
+  width: 60% !important;
+  height: 65px !important;
+  border-radius: 40px;
+}
+
+h1 h2 h3 h4 h5 {
+  font-family: proxima-nova-soft;
+}
+
+@font-face {
+  font-family: 'proxima-nova-soft';
+  src: font-url('proxima-nova-soft.otf') format("opentype");
+  font-weight: normal;
+
+}
+#img-card-index:hover{
+  -webkit-box-shadow: 0px 0px 16px 6px rgba(0,0,0,0.37);
+  -moz-box-shadow: 0px 0px 16px 6px rgba(0,0,0,0.37);
+  box-shadow: 0px 0px 16px 6px rgba(0,0,0,0.37);
+}
+.img-field{
+  margin-top: 150px;
+}
+
+
+

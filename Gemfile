@@ -46,6 +46,8 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'devise-security'
 gem 'pusher'
+gem 'rails-jquery-autocomplete'
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -72,7 +74,8 @@ gem 'image_processing'
 gem 'webpacker', '~> 4.x'
 
 gem 'rack-cors'
-
+gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'simple_form'
 group :development do

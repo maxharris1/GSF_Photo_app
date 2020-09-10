@@ -14,12 +14,12 @@ class PhotosController < ApplicationController
   def new
     #@tagfavs = @articles.object.tag_list
     @photos = Photo.new
+
   end
 
   def show
+    @photo = Photo.find(params[:id])
     @photos = Photo.all
-    @recent = Photo.order('created_at DESC').limit(7)
-
 
     if current_user
       @myphotos = @photos.where(user_id: current_user.id)
@@ -43,13 +43,13 @@ class PhotosController < ApplicationController
   def destroy
     @photos.destroy
     flash[:notice] = "Photo was deleted"
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   def update
     if @photos.update(photos_params)
       flash[:notice] = "Photo was updated"
-      redirect_to root_path
+      redirect_to profile_path
     else
       flash[:alert] = "Photo was not updated"
       render 'edit'
@@ -62,7 +62,7 @@ class PhotosController < ApplicationController
     @photos.save
     if @photos.save
       flash[:notice] = "Photo was successfully created"
-      redirect_to root_path
+      redirect_to profile_path
     else
       flash[:alert] = "ERROR: Could not create Photo"
       render 'new'
