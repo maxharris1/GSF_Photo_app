@@ -1,41 +1,7 @@
 <div class="main-container">
-<h1>Photo Search</h1>
-
-
-
-
-  <%= form_for search_path, method: :get do |f| %>
-    <p>
-      <%= f.label "Search for" %>
-      <%= text_field_tag :q, params[:q] %>
-      <%= submit_tag "Go", name: nil %>
-    </p>
-  <% end %>
-
-  <ul>
-    <% @photos.each_slice(4)  do |v| %>
-      <div class="row row-centered img-field">
-        <% v.each  do |v| %>
-          <div class="col-sm-3 col-lg-3" align="center" >
-            <div class="card" style="width: 18rem;">
-              <div class="card-body"id="img-card-index">
-                <%=link_to image_tag(v.thumbnail, alt: "logo", class: "card-img-top"), photo_path(v) %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </ul>
-
-
-
-
-
-
-
-
-
+<div class="main-content-header">
+  <h1>Photo Search</h1>
+</div>
 
 
 <%#= form_for search_path, method: :get, class:"form-inline" do |f| %>
@@ -46,11 +12,78 @@
 <%# end %>
 
 
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-striped custab" cellspacing="0" id="recentActivity">
+        <thead>
+        <tr>
+
+          <th>Thumbnail:</th>
+          <th>Caption:</th>
+          <th>Tags:</th>
+          <th>View:</th>
+        </tr>
+        </thead>
+        <% @photos.each do |v| %>
+          <tr>
+            <td><%=image_tag(v.thumbnail, alt: "logo", class: "card-img-top") %></td>
+            <td><%= v.caption %></td>
+            <td><%=v.tag_list %></td>
+            <td><%= link_to photo_path(v.id), class: "btn btn-primary btn-xs" do %>
+                <i class="glyphicon glyphicon-view"></i> View
+              <% end %></td>
+          </tr>
+        <%end %>
+      </table>
+    </div>
 
 
-  <%# @photos.each_slice(4)  do |j| %>
+
+
+  </div>
+</div>
+
+<script>
+
+    $(function() {
+        $('#recentActivity').DataTable({
+            "aLengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+            ],
+            "iDisplayLength": 5,
+            "language": {
+                search: ""
+            },
+
+            "aoColumns": [
+                null,
+                null,
+                null,
+                null
+
+            ]
+
+        });
+        $('#recentActivity').each(function () {
+            var datatable = $(this);
+            //SEARCH - Add the placeholder for Search and Turn this into in-line form control
+            var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+            search_input.attr('placeholder', 'Enter Search Parameters');
+            search_input.addClass("search-bar");
+            search_input.removeClass('form-control-sm');
+            // LENGTH - Inline-Form control
+            var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+            length_sel.removeClass('form-control-sm');
+        });
+    });
+
+</script>
+
+
+  <%# @photos.each_slice(4)  do |v| %>
 <!--    <div class="row row-centered img-field">-->
-      <%# j.each  do |v| %>
+      <%# v.each  do |v| %>
 <!--        <div class="col-sm-3 col-lg-3" align="center" >-->
 <!--          <div class="card" style="width: 18rem;">-->
 <!--            <div class="card-body"id="img-card-index">-->
@@ -62,4 +95,3 @@
 <!--    </div>-->
   <%# end %>
 
-</div>

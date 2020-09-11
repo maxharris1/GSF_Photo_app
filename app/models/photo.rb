@@ -4,20 +4,14 @@ class Photo < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   acts_as_taggable_on :tags
 
-  settings index: { number_of_shards: 1 }do
-    mappings dynamic: false do
-      indexes :caption, type: :text, analyzer: :english
-      indexes :tags, type: :text, analyzer: :english
-      indexes :published, type: :boolean
-      end
-  end
-
   belongs_to :user
 
   has_one_attached :thumbnail
 
 
   validate :thumbnail_format
+
+
   def resize_image
     resized_image = MiniMagick::Image.read(thumbnail.download)
     resized_image = resized_image.resize "400x400"
@@ -44,12 +38,4 @@ class Photo < ApplicationRecord
 
 end
 
-Photo.__elasticsearch__.client.indices.delete index: Photo.index_name rescue nil
-
-# Create the new index with the new mapping
-Photo.__elasticsearch__.client.indices.create \
-  index: Photo.index_name,
-  body: { settings: Photo.settings.to_hash, mappings: Photo.mappings.to_hash }
-
- #Index all article records from the DB to Elasticsearch
-Photo.import(force: true)
+Photo.import

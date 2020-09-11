@@ -74,8 +74,8 @@ gem 'image_processing'
 gem 'webpacker', '~> 4.x'
 
 gem 'rack-cors'
-gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
-gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'simple_form'
 group :development do
