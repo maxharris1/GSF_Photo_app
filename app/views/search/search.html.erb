@@ -1,6 +1,6 @@
 <div class="main-container">
 <div class="main-content-header">
-  <h1>Photo Search</h1>
+  <h1>Image Search</h1>
 </div>
 
 
@@ -11,34 +11,42 @@
 <!--  </div>-->
 <%# end %>
 
+  <div class="row">
 
-  <div class="container">
-    <div class="table-responsive">
-      <table class="table table-striped custab" cellspacing="0" id="recentActivity">
-        <thead>
-        <tr>
-
-          <th>Thumbnail:</th>
-          <th>Caption:</th>
-          <th>Tags:</th>
-          <th>View:</th>
-        </tr>
-        </thead>
-        <% @photos.each do |v| %>
-          <tr>
-            <td><%=image_tag(v.thumbnail, alt: "logo", class: "card-img-top") %></td>
-            <td><%= v.caption %></td>
-            <td><%=v.tag_list %></td>
-            <td><%= link_to photo_path(v.id), class: "btn btn-primary btn-xs" do %>
-                <i class="glyphicon glyphicon-view"></i> View
-              <% end %></td>
-          </tr>
-        <%end %>
-      </table>
+    <div class="col-1">
+      fileters
     </div>
+    <div class="col-11">
+      <div class="container">
+      <div class="table-responsive feed">
+        <table class="table table-striped custab" cellspacing="0" id="recentActivity">
+          <thead>
+          <tr>
+
+            <th>Thumbnail:</th>
+            <th>Caption:</th>
+            <th>Tags:</th>
+            <th>View:</th>
+          </tr>
+          </thead>
+          <% @photos.each do |v| %>
+            <tr>
+              <td><%=image_tag(v.thumbnail, alt: "logo", class: "card-img-top") %></td>
+              <td><%= v.caption %></td>
+              <td><%=v.tag_list %></td>
+              <td><%= link_to photo_path(v.id), class: "btn btn-primary btn-xs" do %>
+                  <i class="glyphicon glyphicon-view"></i> View
+                <% end %></td>
+            </tr>
+          <%end %>
+        </table>
+      </div>
 
 
 
+
+    </div>
+    </div>
 
   </div>
 </div>

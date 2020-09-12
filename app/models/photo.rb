@@ -14,7 +14,7 @@ class Photo < ApplicationRecord
 
   def resize_image
     resized_image = MiniMagick::Image.read(thumbnail.download)
-    resized_image = resized_image.resize "400x400"
+    resized_image = resized_image.resize "350x350"
     v_filename = thumbnail.filename
     v_content_type = thumbnail.content_type
     thumbnail.purge

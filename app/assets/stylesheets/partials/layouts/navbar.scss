@@ -20,7 +20,7 @@
 }
 nav{
   background: rgb(255,255,255);
-  background: linear-gradient(102deg, rgba(255,255,255,1) 37%, rgba(0,133,242,1) 61%);
+  background: linear-gradient(102deg, rgba(255,255,255,1) 37%, rgba(0,0,128,1) 61%);
   -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
   -moz-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
   box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.31);
@@ -45,14 +45,14 @@ nav span{
 .auth-btn{
   color: black;
   font-family: "proxima-nova-soft";
-  font-size: 30px;
+  font-size: 35px;
   display:block;
   vertical-align: center !important;
 }
 
 .auth-btn :hover{
   text-decoration: none !important;
-  background-color: #B00100;
+
 }
 .dd{
   text-align: center;
@@ -72,8 +72,7 @@ nav span{
 }
 .profile-pannel a:hover {
   text-decoration: none !important;
-  color: white;
-  background-color: #B00100;
+
 }
 
 .icon i{
@@ -93,5 +92,8 @@ nav span{
     color: black !important;
     font-size: 25px;
   }
+}
+.dropdown-toggle::after {
+  font-size: 25px;
 }
 
