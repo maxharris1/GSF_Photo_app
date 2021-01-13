@@ -19,5 +19,10 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'users#profile'
   get 'search', to: 'search#search'
+  get 'advanced_search', to: 'search#advsearch'
   root to: "pages#index"
+
+  resources :favtags do
+    resource :tagfavorite, module: :favtags
+  end
 end

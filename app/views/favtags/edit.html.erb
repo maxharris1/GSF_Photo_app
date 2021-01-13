@@ -1,0 +1,18 @@
+<div class="container profile-page">
+  <h1>New Favtag</h1>
+  <%= bootstrap_form_for @favtags do |f| %>
+
+    <% if @favtags.errors.any? %>
+      <ul>
+        <% @favtags.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+
+    <%= f.text_field :name, placeholder: 'Tag Name', class: 'form-control'%>
+
+    <%= f.submit 'Edit Favtag', class: 'btn-default sign-up-button' %>
+  <% end %>
+</div>

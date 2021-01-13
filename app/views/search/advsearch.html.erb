@@ -1,22 +1,23 @@
-<div class="main-container">
-<div class="main-content-header">
-  <h1>Image Search</h1>
-  <%=link_to "Advanced Search", advanced_search_path, class: "btn btn-primary btn-lg auth-btn"%>
-</div>
+<div class="container">
+<div class="row" style="margin-top: 130px">
 
-
-
-<%#= form_for search_path, method: :get, class:"form-inline" do |f| %>
-<!--  <div class="row">-->
-    <%#= text_field_tag :q, params[:q], class: "form-control Search-bar  mr-auto", placeholder: "Enter Keywords" %>
-    <%#= submit_tag "Search", name: nil, class: "btn btn-outline-success search-btn" %>
-<!--  </div>-->
-<%# end %>
-
-  <div class="row">
-
+  <div class="col-2">
+    <div class="side-wigi card my-4">
+      <div class="card-header header_title"><h3><b>Filters</b></h3></div></br>
 
       <div class="container">
+        <% @favtags.each do |v| %>
+          <tr>
+            <td><h5><span id="favtags_<%= v.id %>_favorites"><%= render partial: "favtags/favorites", :locals => { :v => v} %></span>  <%=v.name%> </h5></td></br>
+          </tr>
+        <% end %>
+
+      </div>
+      <%=link_to "Search", advanced_search_path, class: "btn btn-primary btn-md auth-btn filter-btn"%>
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="container">
       <div class="table-responsive feed">
         <table class="table table-striped custab" cellspacing="0" id="recentActivity">
           <thead>
@@ -28,7 +29,7 @@
             <th>View:</th>
           </tr>
           </thead>
-          <% @photos.each do |v| %>
+          <% @myfeed.each do |v| %>
             <tr>
               <td><%=image_tag(v.thumbnail, alt: "logo", class: "card-img-top") %></td>
               <td><%= v.caption %></td>
@@ -45,10 +46,10 @@
 
 
     </div>
-    </div>
-
   </div>
 
+</div>
+</div>
 
 <script>
 
@@ -86,19 +87,3 @@
     });
 
 </script>
-
-
-  <%# @photos.each_slice(4)  do |v| %>
-<!--    <div class="row row-centered img-field">-->
-      <%# v.each  do |v| %>
-<!--        <div class="col-sm-3 col-lg-3" align="center" >-->
-<!--          <div class="card" style="width: 18rem;">-->
-<!--            <div class="card-body"id="img-card-index">-->
-              <%#=link_to image_tag(v.thumbnail, alt: "logo", class: "card-img-top"), photo_path(v) %>
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-      <%# end %>
-<!--    </div>-->
-  <%# end %>
-

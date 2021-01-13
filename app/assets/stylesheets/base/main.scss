@@ -41,12 +41,27 @@ h1 h2 h3 h4 h5 {
   box-shadow: 0px 0px 16px 6px rgba(0,0,0,0.37);
 }
 .img-field{
-  margin-top: 95px;
+  margin-top: 95px 
 }
 .main-content-header{
   margin-left: 40px;
   margin-top: 135px !important;
 }
-
+.btn-primary{
+  background-color: #000080 !important;
+  border-color:  #000080 !important;
+}
+.btn-primary:hover{
+  -webkit-box-shadow: 0px 0px 7px 3px rgba(0,0,128,1);
+  -moz-box-shadow: 0px 0px 7px 3px rgba(0,0,128,1);
+  box-shadow: 0px 0px 7px 3px rgba(0,0,128,1);
+}
+.page-item.active .page-link{
+  background-color: #000080 !important;
+}
+.page-link{
+  color: #fff !important;
+  background-color: #000080 !important;
+}
 
 
